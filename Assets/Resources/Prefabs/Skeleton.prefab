@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4824401548849875750, guid: b0c1295cf952f0f4482775e6b423db6c,
+  m_Sprite: {fileID: -6318290503723652907, guid: b0c1295cf952f0f4482775e6b423db6c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,8 +93,9 @@ GameObject:
   - component: {fileID: 3161567392133410308}
   - component: {fileID: 3161567392133410311}
   - component: {fileID: 3161567392133410310}
+  - component: {fileID: 2078619042}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,9 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 0}
+  enemySpawner: {fileID: 0}
   maxHealth: 100
   killReward: 5
-  damageToCastle: 10
+  damageToCastle: 20
   speed: 2
   health: 0
   hitSoundPref: {fileID: 8451129853414376268, guid: 107024dd069f71e4e8f4807ed13fd532,
@@ -161,3 +163,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9375, y: 3}
   m_EdgeRadius: 0
+--- !u!95 &2078619042
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161567392133410309}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b08c13721db8ab843bf4c5d053e1241d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

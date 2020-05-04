@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject path;
+    public EnemySpawner enemySpawner;
 
     /* Stats */
     public float maxHealth = 100f;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     /* Sprite */
     SpriteRenderer spriteRenderer;
+    Animator animator;
 
     /* Audio */
     public GameObject hitSoundPref;
@@ -39,6 +41,8 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        animator = GetComponent<Animator>();
         
     }
 
@@ -49,7 +53,11 @@ public class Enemy : MonoBehaviour
             toTarget = new Vector3(toTarget.x, toTarget.y, 0f);
 
             if(toTarget.magnitude > 0.1f) {
-                transform.position += toTarget.normalized * speed * Time.deltaTime;
+                Vector3 path = toTarget.normalized * speed * Time.deltaTime;
+
+                animator.SetFloat("speedX", path.x);
+                animator.SetFloat("speedY", path.y);
+                transform.position += path;
             } else {
                 if(targetChildIndex < path.transform.childCount - 1) {
                     targetChildIndex++;
@@ -73,6 +81,7 @@ public class Enemy : MonoBehaviour
             if(health <= 0) {
                 alive = false;
                 StartCoroutine(Die());
+                gameController.CastleCollectGold(killReward);
             } else {
                 StartCoroutine(ReactToHit());
             }
@@ -88,7 +97,8 @@ public class Enemy : MonoBehaviour
     }
     
     IEnumerator Die() {
-        gameController.CastleCollectGold(killReward);
+        enemySpawner.numDied++;
+
         float t = 0f;
         for(int i = 0; i < 20f; i++) {
             t = ((float)i)/20f;

@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
-    public GameObject pathway;
     public GameObject towerLocations;
-    public Enemy enemy;
     public GameObject towerPref;
     public CanvasGroup pausePanel;
 
@@ -29,8 +27,16 @@ public class GameController : MonoBehaviour
     GameObject canvas;
     GameObject towerButton;
 
+    GameObject archerPref;
+    GameObject shamanPref;
+    GameObject sagePref;
+
     void Start()
     {
+        archerPref =  Resources.Load("Prefabs/ArcherTower") as GameObject;
+        shamanPref =  Resources.Load("Prefabs/ShamanTower") as GameObject;
+        sagePref =  Resources.Load("Prefabs/SageTower") as GameObject;
+
         towerButton = Resources.Load("Prefabs/TowerButton") as GameObject;
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -73,7 +79,7 @@ public class GameController : MonoBehaviour
     }
 
     public Tower CreateTower(Vector3 position) {
-        if(Purchase(50)) {
+        if(Purchase(towerPref.GetComponent<Tower>().value)) {
             return Instantiate(towerPref, position, Quaternion.identity).GetComponent<Tower>();
         } else {
             return null;
@@ -90,6 +96,9 @@ public class GameController : MonoBehaviour
         return true;
     }
 
+    public void ChooseArcher() { towerPref = archerPref; }
+    public void ChooseShaman() { towerPref = shamanPref; }
+    public void ChooseSage() { towerPref = sagePref; }
 
     public void CastleTakeDamage(float amount) {
         castleHealth -= amount;

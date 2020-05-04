@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
 {
 
     /* Stats */
+    public int value = 50;
     public float range = 10f;
     public float damage = 10f;
     public float cooldownTime = 1;
@@ -67,7 +68,7 @@ public class Tower : MonoBehaviour
 
         Instantiate(shootSoundPref);
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f * cooldownTime);
         
         target.TakeDamage(damage);
     }

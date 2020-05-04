@@ -20,6 +20,9 @@ public class TowerButton : MonoBehaviour
             Vector3 pos = cam.ScreenToWorldPoint(transform.position);
             pos = new Vector3(pos.x, pos.y, -1f);
             tower = gameController.CreateTower(pos);
+        } else {
+            Destroy(tower.gameObject);
+            tower = null;
         }
     }
 }

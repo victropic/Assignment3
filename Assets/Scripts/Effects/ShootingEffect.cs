@@ -6,6 +6,8 @@ public class ShootingEffect : MonoBehaviour
 {
 
     public float timeToLive = 0.1f;
+    public float strattle = 0f;
+    public float spin = 0f;
     
     Transform origin = null;
     Transform target = null;
@@ -28,6 +30,10 @@ public class ShootingEffect : MonoBehaviour
             transform.position = Vector3.Lerp(target.position, origin.position, timer/timeToLive);
             transform.position = new Vector3(transform.position.x, transform.position.y, -2f);
             transform.rotation = GetRotation();
+
+            /* spin and strattle */
+            transform.position += transform.rotation * Vector3.up * strattle * Mathf.Sin(10f * (1f-timer/timeToLive));
+            transform.rotation *= Quaternion.AngleAxis(spin, Vector3.back);
         }
     }
 
