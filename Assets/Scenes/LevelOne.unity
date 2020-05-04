@@ -46812,7 +46812,7 @@ MonoBehaviour:
   pausePanel: {fileID: 762241143}
   maxCastleHealth: 100
   castleHealth: 0
-  castleGold: 150
+  castleGold: 125
   rewardSound: {fileID: 1556493274680837774, guid: f3d04e4137723f14f82daac7adc93c6b,
     type: 3}
   purchaseSound: {fileID: 1394352683769707262, guid: a0cf8e1b0e632dd4ab2fe06926e129ce,

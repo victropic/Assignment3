@@ -1317,7 +1317,10 @@ MonoBehaviour:
 
     Stop enemies from
     invading your castle. As enemies get by your defenses, your health will decrease.
-    Click on the elevated platforms to create a new character.'
+    Click on the pillars to add a character their. Select which character to place
+    by clicking their icons in the top right. You must have enough gold for the character
+    you selected. If you want to remove a character, simply click them again. Use
+    repairs to get back HP.'
 --- !u!222 &1262329054
 CanvasRenderer:
   m_ObjectHideFlags: 0
