@@ -49,6 +49,8 @@ MonoBehaviour:
   cooldownTime: 1
   shootingEffectPref: {fileID: 7620783999687805363, guid: c136d8076b863ac4ab4ac317f750e0ab,
     type: 3}
+  shootSoundPref: {fileID: 3004009098736825093, guid: 2c2daff15fe3fa649a5faa8f52cf1150,
+    type: 3}
 --- !u!1 &253557570402265021
 GameObject:
   m_ObjectHideFlags: 0

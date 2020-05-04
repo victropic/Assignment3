@@ -19,6 +19,9 @@ public class Tower : MonoBehaviour
     /* Effects */
     public GameObject shootingEffectPref;
 
+    /* Audio */
+    public GameObject shootSoundPref;
+
     /* Sprite */
     SpriteRenderer spriteRenderer;
 
@@ -61,6 +64,8 @@ public class Tower : MonoBehaviour
 
         GameObject shot = Instantiate(shootingEffectPref, Vector3.back * 2, Quaternion.identity);
         shot.GetComponent<ShootingEffect>().Setup(transform, target.transform);
+
+        Instantiate(shootSoundPref);
         
         yield return new WaitForSeconds(0.5f);
         
@@ -79,9 +84,7 @@ public class Tower : MonoBehaviour
     }
 
     void OnDrawGizmos() {
-        if(Selection.Contains(gameObject)) {
-            Gizmos.color = new Color(1f, 1f, 0f, 0.25f);
-            Gizmos.DrawWireSphere(transform.position, range);
-        }
+        Gizmos.color = new Color(1f, 1f, 0f, 0.25f);
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

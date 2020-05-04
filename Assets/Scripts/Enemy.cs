@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     /* Sprite */
     SpriteRenderer spriteRenderer;
 
+    /* Audio */
+    public GameObject hitSoundPref;
+
     /* Misc */
     GameController gameController;
 
@@ -62,14 +65,17 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDamage(float amount) {
+        if(alive) {
+            health -= amount;
 
-        health -= amount;
+            Instantiate(hitSoundPref);
 
-        if(health <= 0) {
-            alive = false;
-            StartCoroutine(Die());
-        } else {
-            StartCoroutine(ReactToHit());
+            if(health <= 0) {
+                alive = false;
+                StartCoroutine(Die());
+            } else {
+                StartCoroutine(ReactToHit());
+            }
         }
     }
 
