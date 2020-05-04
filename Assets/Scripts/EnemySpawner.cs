@@ -86,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy() {
         /* pick enemy */
         float choose = (float)random.NextDouble() * enemies.Count;
-        int index = Mathf.FloorToInt(Mathf.Clamp(choose + waveNumber - 4f, 0f, enemies.Count));
+        int index = Mathf.FloorToInt(Mathf.Clamp(choose + (waveNumber-1)/2f - 4f, 0f, enemies.Count - 1));
 
         Enemy enemy = Instantiate(enemies[index], transform.position, Quaternion.identity).GetComponent<Enemy>();
         enemy.path = path;

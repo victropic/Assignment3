@@ -100,6 +100,17 @@ public class GameController : MonoBehaviour
     public void ChooseShaman() { towerPref = shamanPref; }
     public void ChooseSage() { towerPref = sagePref; }
 
+    public void repairSmall() {
+        if(castleHealth < maxCastleHealth && Purchase(25)) {
+            castleHealth += 10f;
+        }
+    }
+    public void repairLarge() {
+        if(castleHealth < maxCastleHealth && Purchase(60)) {
+            castleHealth += 50f;
+        }
+    }
+
     public void CastleTakeDamage(float amount) {
         castleHealth -= amount;
         if(castleHealth <= 0) {

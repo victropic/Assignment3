@@ -51,7 +51,7 @@ MonoBehaviour:
   maxHealth: 200
   killReward: 20
   damageToCastle: 40
-  speed: 2
+  speed: 3
   health: 0
   hitSoundPref: {fileID: 8451129853414376268, guid: 107024dd069f71e4e8f4807ed13fd532,
     type: 3}

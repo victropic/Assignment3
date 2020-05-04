@@ -21,6 +21,7 @@ public class TowerButton : MonoBehaviour
             pos = new Vector3(pos.x, pos.y, -1f);
             tower = gameController.CreateTower(pos);
         } else {
+            gameController.CastleCollectGold(tower.value/2);
             Destroy(tower.gameObject);
             tower = null;
         }
